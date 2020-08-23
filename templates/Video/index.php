@@ -17,9 +17,10 @@
                         <div class="column">
                             <?php
                             echo $this->Form->create(NULL, array('url' => '/Video'));
-                            echo $this->Form->input('VideoSearch',array('class' => 'form-control','placeholder'=>'Search','required'));
-                            echo $this->Form->button(' ',array('class' => 'fa fa-search'));
+                            echo $this->Form->input('VideoSearch',array('class' => 'form-control form-control-lg kuldeep','placeholder'=>'Search','required'));
+                            echo $this->Form->button('',array('class' => 'fa fa-search'));
                             echo $this->Form->end();
+                            var_dump($response);
                             ?>
                         </div>
                     </div>

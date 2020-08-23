@@ -16,7 +16,9 @@ namespace App\Controller;
  */
 class VideoController extends AppController{
     
-       function videodisplay() {
+       function index() {
+       $response = $this->request->getData('VideoSearch');
+       $this->set('response', $response);
       
     }
     
