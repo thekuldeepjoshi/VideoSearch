@@ -47,8 +47,8 @@ $routes->setRouteClass(DashedRoute::class);
 $routes->scope('/', function (RouteBuilder $builder) {
     /*
      * Here, we are connecting '/' (base path) to a controller called 'Video',
-     * its action called 'videodisplay', and we pass a param to select the view file
-     * to use (in this case, templates/Video/videodisplay.php)...
+     * its action called 'index', and we pass a param to select the view file
+     * to use (in this case, templates/Video/index.php)...
      */
     $builder->connect('/', ['controller' => 'Video', 'action' => 'index', 'VideosearchView']);
 
