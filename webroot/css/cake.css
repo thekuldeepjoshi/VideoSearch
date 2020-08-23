@@ -214,9 +214,13 @@ th {
         content: " \2190";
     }
 }
-.kuldeep {
+.VideoSearch {
     width: 90%;
     padding-top: 0.7%;
     padding-bottom: 0.7%;
- 
+}
+.videoSearchview {
+    padding-left: 3%; 
+    padding-right: 2%;
+    margin: auto;
 }
