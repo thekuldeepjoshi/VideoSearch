@@ -16,13 +16,13 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 If Composer is installed globally, run
 
 ```bash
-composer create-project --prefer-dist cakephp/app
+composer create-project --prefer-dist cakephp/VideoSearch
 ```
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+In case you want to use a custom app dir name (e.g. `/VideoSearch/`):
 
 ```bash
-composer create-project --prefer-dist cakephp/app myapp
+composer create-project --prefer-dist cakephp/app VideoSearch
 ```
 
 You can now either use your machine's webserver to view the default home page, or start
