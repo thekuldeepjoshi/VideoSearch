@@ -20,10 +20,11 @@
                     echo $this->Form->end();?>
                     <div class="videoSearchview">
                     <?php
+
                     if ($response != null) {
 
-                        $apikey = 'AIzaSyDliyJ5AjeSRT26ncDNo9SYQCTXVjSuFm4';
-                        $googleApiUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' . $response . '&maxResults=6&key=' . $apikey;
+                        $apikey = 'AIzaSyAr_3fKt9vTulhK6hLQs8oWdNqCsrb1aEQ';
+                        $googleApiUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' . $response . '&maxResults=6&pageToken=' . $nextPageToken .'&key=' . $apikey;
                         $ch = curl_init();
                         curl_setopt($ch, CURLOPT_HEADER, 0);
                         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -36,7 +37,8 @@
                         curl_close($ch);
                         $data = json_decode($json_response);
                         $value = json_decode(json_encode($data), true);
-//                                var_dump($value['items']);
+                        $nextPageToken =$value['nextPageToken'];
+                        
                         foreach ($value['items'] as $key => $val) {
                             if ($value['items'][$key]['id']['kind'] == 'youtube#video') {
                                 $videoId = $value['items'][$key]['id']['videoId'];
@@ -45,12 +47,20 @@
                                 ?>
                                 <iframe id="iframe" src="https://www.youtube.com/embed/<?php echo $videoId; ?>" 
                                         data-autoplay-src="https://www.youtube.com/embed/<?php echo $videoId; ?>?autoplay=1" allowfullscreen=""></iframe> 
-                    
                                         <?php
                                     }
                                 }
+                    echo $this->Form->create(NULL, array('url' => '/Video'));
+                    echo $this->Form->hidden('nextPageToken',array('value' => $nextPageToken));
+                    echo $this->Form->hidden('VideoSearch', array('value' => $response));
+                    echo $this->Form->button('',array('class' => 'fa fa-arrow-left'));
+                    echo $this->Form->button('',array('class' => 'fa fa-arrow-right right'));
+                    echo $this->Form->end();
                             }
+                    
                             ?>
+                        
+                       
                     </div>
                 </div>
             </div>

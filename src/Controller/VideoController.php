@@ -19,7 +19,8 @@ class VideoController extends AppController{
        function index() {
        $response = $this->request->getData('VideoSearch');
        $this->set('response', $response);
-      
+       $nextPageToken = $this->request->getData('nextPageToken');
+       $this->set('nextPageToken', $nextPageToken);
     }
     
 }

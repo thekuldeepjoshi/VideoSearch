@@ -224,3 +224,6 @@ th {
     padding-right: 2%;
     margin: auto;
 }
+.right{
+    float: right;
+}
